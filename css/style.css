@@ -207,8 +207,45 @@ a {
 }
 .btn--primary:active { transform: translateY(0); }
 
+/* İkincil buton: WhatsApp'ın yanında dikkat çalmayan seçenek */
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  transform: translateY(-2px);
+}
+.btn--ghost:active { transform: translateY(0); }
+
+/* Buton içi ikon */
+.btn__icon {
+  display: inline-flex;
+  margin-right: 0.6rem;
+  flex-shrink: 0;
+}
+.btn__icon svg { width: 20px; height: 20px; }
+
+/* Hero aksiyonları: mobilde alt alta, geniş ekranda yan yana */
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  align-items: stretch;
+}
+@media (min-width: 640px) {
+  .hero__actions {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
 /* Hero'daki ana çağrı butonu biraz daha iri */
-.hero .btn--primary {
+.hero .btn {
   min-height: 54px;
   padding: 1rem 2rem;
   font-size: 1.05rem;
@@ -393,6 +430,11 @@ a {
 }
 .contact__mail-icon { color: var(--accent); flex-shrink: 0; }
 .contact__mail-icon svg { width: 22px; height: 22px; }
+
+.contact__mail--wa {
+  border-color: var(--border-strong);
+  word-break: normal;
+}
 
 .socials {
   display: flex;
@@ -584,7 +626,7 @@ a {
 .hero__eyebrow.intro { animation-delay: 0.05s; }
 .hero__title.intro   { animation-delay: 0.15s; }
 .hero__lead.intro    { animation-delay: 0.25s; }
-.btn.intro           { animation-delay: 0.35s; }
+.hero__actions.intro { animation-delay: 0.35s; }
 
 .site-header {
   animation: intro-up 0.6s var(--ease) both;
